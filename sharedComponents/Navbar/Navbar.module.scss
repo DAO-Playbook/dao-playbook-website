@@ -1,0 +1,98 @@
+@import '../../styles/breakpoint';
+@import '../../styles/colors';
+@import '../../styles/typography';
+
+.Navbar {
+  height: 80px;
+  display: flex;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: $white-1;
+  z-index: 100;
+
+  @include md {
+    padding: 0 60px;
+  }
+
+  @include lg {
+    padding: 0 120px;
+  }
+
+  & > svg {
+    cursor: pointer;
+  }
+
+  &_links {
+    display: none;
+    width: 70%;
+
+    @include md {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @include lg {
+      width: 60%;
+    }
+
+    &_item {
+      display: flex;
+
+      a {
+        &:not(:last-of-type) {
+          margin-right: 32px;
+        }
+        text-decoration: none;
+      }
+
+      &_btn {
+        &:not(:last-of-type) {
+          margin-right: 24px;
+        }
+      }
+    }
+  }
+
+  &_menu {
+    display: flex;
+
+    @include md {
+      display: none;
+    }
+  }
+
+  &_dropdown {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    left: 0;
+    background-color: $white-1;
+    width: 100%;
+    z-index: 1000;
+
+    @include md {
+      display: none;
+    }
+
+    &_links {
+      &:not(:first-of-type) {
+        margin-top: 260px;
+      }
+
+      &_item {
+        font-size: 15px;
+        font-weight: 500;
+        padding: 20px 16px;
+        border-bottom: solid 1px $soap-2;
+      }
+
+      &_btn {
+        padding: 20px 16px;
+      }
+    }
+  }
+}

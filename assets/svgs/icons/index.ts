@@ -1,0 +1,10 @@
+export { default as MenuCloseIcon } from './menu-close.svg';
+export { default as MenuOpenIcon } from './menu-open.svg';
+export { default as IOSIcon } from './ios.svg';
+export { default as AndroidIcon } from './android.svg';
+export { default as SlackIcon } from './slack.svg';
+export { default as HeadphoneIcon } from './headphone.svg';
+export { default as CircleArrowWhiteIcon } from './circle-white-arrow.svg';
+export { default as CircleArrowIcon } from './circle-arrow.svg';
+export { default as TwitterIcon } from './twitter.svg';
+export { default as CircleCloseIcon } from './circle-close.svg';

@@ -1,0 +1,105 @@
+@import './colors';
+
+// ================= Font Weights =================
+$font-small: 400;
+$font-medium: 500;
+$font-bold: 600;
+
+// ================= Display Typography =================
+@mixin display-1 {
+  font-size: 44px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.23;
+  letter-spacing: -0.91px;
+}
+
+@mixin display-2 {
+  font-size: 32px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.34;
+  letter-spacing: -0.44px;
+}
+
+// ================= Heading Typography ================= //
+@mixin heading-1 {
+  font-size: 28px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.21;
+  letter-spacing: -0.39px;
+}
+@mixin heading-2 {
+  font-size: 24px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: -0.24px;
+}
+@mixin heading-3 {
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 32px;
+  letter-spacing: -0.12px;
+}
+@mixin heading-4 {
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.28;
+  letter-spacing: -0.11px;
+}
+@mixin heading-5 {
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.37;
+  letter-spacing: -0.09px;
+}
+
+// ================= Body Typography =================
+@mixin body-1 {
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: -0.08px;
+  color: $licorice-4;
+}
+@mixin body-2 {
+  font-size: 13px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.46;
+  letter-spacing: -0.07px;
+}
+
+@mixin small-text {
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.58;
+  letter-spacing: -0.07px;
+}
+
+@mixin caps-2 {
+  font-size: 11px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 15px;
+  letter-spacing: 0.82px;
+  text-transform: uppercase;
+}

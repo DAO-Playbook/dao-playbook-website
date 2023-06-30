@@ -1,0 +1,107 @@
+@import '../../styles/typography';
+@import '../../styles/colors';
+@import '../../styles/breakpoint';
+
+.PageNotFound {
+  height: 100vh;
+  padding: 0 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include sm {
+    padding: 0 50px;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1440px;
+  }
+
+  @include md {
+    padding: 0 100px;
+  }
+
+  @include lg {
+    padding: 0 150px;
+  }
+
+  &_header {
+    position: absolute;
+    padding: 30px 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+
+    @include sm {
+      padding: 30px 50px;
+    }
+    @include md {
+      padding: 30px 100px;
+    }
+    @include lg {
+      padding: 30px 150px;
+    }
+  }
+
+  &_text_box {
+    max-width: 536px;
+    order: 2;
+    text-align: center;
+    margin-top: 40px;
+
+    @include sm {
+      margin-right: 50px;
+      order: 1;
+      text-align: left;
+      margin-top: 0;
+    }
+    @include md {
+      margin-right: 80px;
+    }
+    @include lg {
+      margin-right: 125px;
+    }
+
+    & > h1 {
+      @include display-1();
+      font-size: 28px;
+
+      @include md {
+        font-size: 32px;
+      }
+
+      @include lg {
+        font-size: 44px;
+      }
+    }
+
+    & > p {
+      margin-top: 20px;
+      @include heading-4();
+      font-size: 16px;
+
+      @include md {
+        font-size: 18px;
+        margin-top: 40px;
+      }
+
+      a {
+        color: $theme-color;
+      }
+    }
+  }
+
+  &_illustration {
+    width: 250px;
+    height: 271px;
+    order: 1;
+
+    @include sm {
+      width: 511px;
+      height: 554px;
+      order: 2;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "env": {
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": ["eslint:recommended", "next/core-web-vitals", "prettier"],
+  "rules": {
+    "arrow-parens": ["off"],
+    "comma-dangle": ["error", "only-multiline"],
+    "consistent-return": "off",
+    "import/default": "off",
+    "import/extensions": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "linebreak-style": 0,
+    "global-require": "off",
+    "max-len": [
+      "warn",
+      150,
+      {
+        "ignorePattern": "[^\\n\\r]{115,120}\\{(?:'|\") (?:'|\")\\}"
+      }
+    ],
+    "no-alert": "off",
+    "no-confusing-arrow": "off",
+    "no-console": "off",
+    "no-labels": "off",
+    "no-plusplus": "off",
+    "no-nested-ternary": "off",
+    "no-param-reassign": "off",
+    "no-prototype-builtins": "off",
+    "no-template-curly-in-string": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "warn",
+    "prefer-promise-reject-errors": "warn",
+    "prefer-template": "warn",
+    "react/display-name": "off",
+    "react-hooks/exhaustive-deps": "off",
+    "react/forbid-prop-types": "warn",
+    "react/jsx-closing-tag-location": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-no-target-blank": "warn",
+    "react/no-multi-comp": [
+      "error",
+      {
+        "ignoreStateless": true
+      }
+    ],
+    "react/no-unescaped-entities": "off",
+    "react/prefer-stateless-function": "warn",
+    "react/prop-types": "off"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ]
+}

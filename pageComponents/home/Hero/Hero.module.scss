@@ -1,0 +1,86 @@
+@import '../../../styles/breakpoint';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+.Hero {
+  position: relative;
+  height: calc(100vh - 80px);
+  width: 100vw;
+  display: grid;
+  place-items: center;
+
+  &_content {
+    z-index: 10;
+    text-align: center;
+
+    &_title {
+      @include heading-1;
+      width: 90%;
+      margin: 0 auto;
+      font-size: 30px;
+      font-weight: 600;
+      color: $black-1;
+
+      @include sm {
+        width: 61%;
+      }
+
+      @include md {
+        font-size: 60px;
+      }
+    }
+
+    &_desc {
+      @include heading-4;
+      width: 90%;
+      margin: 24px auto 0;
+      font-weight: 400;
+      color: $black-1;
+
+      @include sm {
+        width: 40%;
+      }
+    }
+
+    &_container {
+      display: grid;
+      justify-content: center;
+      margin-top: 48px;
+      grid-gap: 16px 24px;
+
+      @include sm {
+        display: flex;
+      }
+    }
+  }
+
+  &_illustration {
+    position: absolute;
+
+    &:first-of-type {
+      width: 200px;
+      height: 233px;
+      top: -80px;
+      left: 0;
+
+      @include md {
+        width: max-content;
+        height: max-content;
+        top: -80px;
+      }
+    }
+    &:last-of-type {
+      width: 212px;
+      height: 139px;
+      bottom: -30px;
+      right: 0;
+      z-index: -1;
+
+      @include md {
+        width: max-content;
+        height: max-content;
+        bottom: -70px;
+      }
+    }
+  }
+}
