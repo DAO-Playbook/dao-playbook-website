@@ -1,0 +1,53 @@
+@import '../../../styles/breakpoint';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+.Contact {
+  width: 100%;
+  padding: 40px 0 56px;
+  text-align: center;
+  background: #ebebe0;
+
+  @include md {
+    padding: 144px 0;
+    background: #f5f5ef;
+  }
+
+  & > h2 {
+    font-size: 49px;
+    font-weight: 400;
+    line-height: 54px;
+    letter-spacing: -0.686px;
+    margin-bottom: 8px;
+
+    @include md {
+      font-size: 79px;
+      font-weight: 400;
+      line-height: 82px;
+      letter-spacing: -1.106px;
+      margin-bottom: 16px;
+    }
+  }
+
+  & > p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.26px;
+
+    @include md {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 31px;
+      letter-spacing: -0.32px;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 25px;
+
+      @include md {
+        margin-bottom: 35px;
+      }
+    }
+  }
+}
