@@ -29,12 +29,28 @@ const baskervville = localFont({
 const gTAmericaMono = localFont({
   src: [
     {
-      path: '../public/fonts/GTAmericaMono-Regular.woff',
+      path: '../public/fonts/GTAmericaMonoTrial-Rg.woff',
       weight: '400',
     },
     {
-      path: '../public/fonts/GTAmericaMono-Regular.woff2',
+      path: '../public/fonts/GTAmericaMonoTrial-Rg.woff2',
       weight: '400',
+    },
+    {
+      path: '../public/fonts/GTAmericaMonoTrial-Md.woff',
+      weight: '500',
+    },
+    {
+      path: '../public/fonts/GTAmericaMonoTrial-Md.woff2',
+      weight: '500',
+    },
+    {
+      path: '../public/fonts/GTAmericaMonoTrial-Bd.woff',
+      weight: '700',
+    },
+    {
+      path: '../public/fonts/GTAmericaMonoTrial-Bd.woff2',
+      weight: '700',
     },
   ],
 });

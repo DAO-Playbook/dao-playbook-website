@@ -1,0 +1,14 @@
+@import '../../../styles/breakpoint';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+.Book {
+  width: 100%;
+  border-bottom: 1px solid $black-1;
+  border-top: 1px solid $black-1;
+
+  @include md {
+    display: grid;
+    grid-template-columns: 484px 957px;
+  }
+}

@@ -1,0 +1,53 @@
+@import '../../../styles/breakpoint';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+.BookChapter {
+  padding: 48px 72px 48px 48px;
+
+  &:hover {
+    background: #ebebe0;
+  }
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $black-1;
+  }
+
+  & > h3 {
+    @include md {
+      font-size: 45px;
+      font-weight: 400;
+      line-height: 50px;
+      letter-spacing: -0.63px;
+      margin-bottom: 16px;
+    }
+  }
+
+  & > p {
+    @include md {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 31px;
+      letter-spacing: -0.32px;
+      margin-bottom: 48px;
+    }
+  }
+
+  &_action {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+    & > p {
+      text-transform: uppercase;
+      font-family: var(--gTAmericaMono-font);
+
+      @include md {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 15px;
+        letter-spacing: 0.42px;
+      }
+    }
+  }
+}
