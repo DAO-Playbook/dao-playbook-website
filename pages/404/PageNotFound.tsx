@@ -1,6 +1,5 @@
 import { NextPage } from 'next';
 import Link from 'next/link';
-import { PageNotFoundIllustration } from '@assets/svgs';
 
 import styles from './PageNotFound.module.scss';
 
@@ -17,7 +16,6 @@ const PageNotFound: NextPage = () => {
           address. <Link href='/'>Return to home</Link>
         </p>
       </div>
-      <PageNotFoundIllustration className={styles.PageNotFound_illustration} />
     </section>
   );
 };
