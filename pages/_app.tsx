@@ -128,14 +128,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           content='/icons/ms-icon-144x144.png'
         />
         <meta name='theme-color' content='#ffffff'></meta>
-        <style jsx global>{`
-          :root {
-            /* ... */
-            --baskervville-font: ${baskervville.style.fontFamily};
-            --gTAmericaMono-font: ${gTAmericaMono.style.fontFamily};
-          }
-        `}</style>
       </Head>
+      <style jsx global>{`
+        :root {
+          /* ... */
+          --baskervville-font: ${baskervville.style.fontFamily};
+          --gTAmericaMono-font: ${gTAmericaMono.style.fontFamily};
+        }
+      `}</style>
       <Component {...pageProps} />
     </>
   );

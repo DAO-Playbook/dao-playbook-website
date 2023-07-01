@@ -1,0 +1,29 @@
+@import '../../styles/breakpoint';
+@import '../../styles/colors';
+
+.Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $black-1;
+  border-top: 1px solid $black-1;
+  padding-left: 40px;
+
+  &_logo {
+    width: 124.291px;
+    height: 32px;
+
+    @include md {
+      width: 140.356px;
+      height: 36.136px;
+    }
+  }
+
+  &_button {
+    padding: 25px;
+
+    @include md {
+      padding: 33px 41px;
+    }
+  }
+}

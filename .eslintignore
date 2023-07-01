@@ -1,3 +1,6 @@
 node_modules
 build
 cypress
+public
+public/*.js
+public/*.js.map

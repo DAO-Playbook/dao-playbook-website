@@ -39,7 +39,17 @@ const svgConfig = {
 
 const eslinConfig = {
   eslint: {
-    dirs: ['pages', 'utils', 'sharedComponents', 'assets'],
+    dirs: [
+      'pages',
+      'utils',
+      'sharedComponents',
+      'pageComponents',
+      'assets',
+      'services',
+      'types',
+      'data',
+      'api',
+    ],
   },
 };
 

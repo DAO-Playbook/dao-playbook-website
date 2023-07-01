@@ -74,8 +74,9 @@ $font-bold: 600;
   font-style: normal;
   line-height: 1.43;
   letter-spacing: -0.08px;
-  color: $licorice-4;
+  color: $text-color;
 }
+
 @mixin body-2 {
   font-size: 13px;
   font-weight: normal;

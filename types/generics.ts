@@ -128,3 +128,10 @@ interface ResourceData {
 }
 
 export type ResourcesType = Attribute<ResourceData>;
+
+export enum ButtonVariants {
+  // eslint-disable-next-line no-unused-vars
+  Primary = 'primary',
+  // eslint-disable-next-line no-unused-vars
+  Link = 'link',
+}

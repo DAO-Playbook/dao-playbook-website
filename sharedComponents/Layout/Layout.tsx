@@ -2,7 +2,7 @@ import { NextPage } from 'next';
 import Head from 'next/head';
 import React from 'react';
 import Footer from '@sharedComponents/Footer';
-import Navbar from '@sharedComponents/Navbar';
+import Header from '@sharedComponents/Header';
 
 interface Meta {
   title: string;
@@ -19,7 +19,7 @@ interface LayoutProps {
 const Layout: NextPage<LayoutProps> = ({ children, className, meta }) => {
   return (
     <>
-      <Navbar />
+      <Header />
       <Head>
         <title>Dao Playbook | {meta.title}</title>
         <meta name='title' content={meta.title} />
