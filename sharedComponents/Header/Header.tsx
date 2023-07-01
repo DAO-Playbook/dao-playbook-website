@@ -8,8 +8,8 @@ import Button from '@sharedComponents/Button/Button';
 const Header: NextPage = () => {
   return (
     <header className={styles.Header}>
-      <Link href='/'>
-        <DaoLogo className={styles.Header_logo} />
+      <Link className={styles.Header_logo} href='/'>
+        <DaoLogo />
       </Link>
       <Button className={styles.Header_button}>Get in touch</Button>
     </header>

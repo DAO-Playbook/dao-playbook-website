@@ -3,6 +3,68 @@
 @import '../../styles/typography';
 
 .Footer {
-  color: $white-1;
-  background-color: $black-1;
+  display: grid;
+  width: 100%;
+  grid-template-areas:
+    'logo . button'
+    'social-links social-links social-links';
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  align-items: center;
+  background: #ebebe0;
+  padding: 31px 16px;
+  row-gap: 56px;
+
+  @include md {
+    grid-template-areas: 'logo social-links button';
+    grid-template-columns: repeat(3, max-content);
+    padding: 22px 72px 22px 40px;
+    background: #f5f5ef;
+    border-bottom: 1px solid $black-1;
+    border-top: 1px solid $black-1;
+    row-gap: 0;
+  }
+
+  &_logo {
+    grid-area: logo;
+    width: 124.291px;
+    height: 32px;
+
+    @include md {
+      width: 140.356px;
+      height: 36.136px;
+    }
+  }
+
+  &_social_links {
+    grid-area: social-links;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+
+    @include md {
+      gap: 24px;
+    }
+
+    & > a {
+      display: block;
+      width: 20px;
+      height: 20px;
+
+      @include md {
+        width: 24px;
+        height: 24px;
+      }
+
+      & > svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  &_button {
+    grid-area: button;
+    justify-self: end;
+  }
 }

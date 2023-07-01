@@ -1,5 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
-import Layout from '@sharedComponents/Layout/Layout';
+import Layout from '@sharedComponents/Layout';
 import Hero from '../pageComponents/home/Hero';
 import { metaData } from '@data/pageMeta';
 

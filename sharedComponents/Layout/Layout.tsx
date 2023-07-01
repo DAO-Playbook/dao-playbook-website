@@ -19,7 +19,6 @@ interface LayoutProps {
 const Layout: NextPage<LayoutProps> = ({ children, className, meta }) => {
   return (
     <>
-      <Header />
       <Head>
         <title>Dao Playbook | {meta.title}</title>
         <meta name='title' content={meta.title} />
@@ -31,6 +30,7 @@ const Layout: NextPage<LayoutProps> = ({ children, className, meta }) => {
         <meta name='twitter:description' content={meta.description} />
         <meta property='al:web:url' content={meta.url} />
       </Head>
+      <Header />
       <main className={className}>{children}</main>
       <Footer />
     </>

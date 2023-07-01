@@ -11,6 +11,7 @@
   font-size: 12px;
   letter-spacing: 0.36px;
   text-align: center;
+  width: max-content;
 
   @include sm {
     line-height: 15px;
