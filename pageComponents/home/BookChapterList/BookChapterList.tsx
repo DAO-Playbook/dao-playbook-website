@@ -2,14 +2,12 @@ import React from 'react';
 import { capitalize, omit, uniqueId } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { useMediaQuery } from 'react-responsive';
-import PartTag from '../PartTag';
 import BookChapter from '../BookChapter';
 import { BookContext } from '@contexts/Book';
-import { PART_TAG_COLORS } from '@data/constants';
+import Select, { Option } from '@sharedComponents/Select';
+import PartName from '../PartName';
 
 import styles from './BookChapterList.module.scss';
-import Select, { Option } from '@sharedComponents/Select/Select';
-import PartName from '../PartName/PartName';
 
 const BookChapterList = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });

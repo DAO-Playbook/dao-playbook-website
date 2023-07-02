@@ -2,16 +2,14 @@ import React from 'react';
 import cx from 'classnames';
 import { capitalize, uniqueId } from 'lodash';
 import { formatQuantity } from 'format-quantity';
-import { PART_TAG_COLORS } from '@data/constants';
-import PartTag from '../PartTag';
+import { format } from 'date-fns';
 import { BookContext } from '@contexts/Book';
-
-import styles from './BookPartNavigation.module.scss';
 import { getChapter } from '@api/book';
 import { WithAttribute } from 'types';
 import { Chapter } from 'types/book';
-import { format } from 'date-fns';
 import PartName from '../PartName/PartName';
+
+import styles from './BookPartNavigation.module.scss';
 
 const BookPartNavigation = () => {
   const { book, activePart, setBookContextValue } =
