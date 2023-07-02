@@ -2830,6 +2830,11 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
+format-quantity@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/format-quantity/-/format-quantity-2.1.0.tgz#6fadeef161af2145959df8f8f91ef626ffc3a409"
+  integrity sha512-BoSumTpBCV/8aQkJj2Fh9wg5SStyPaBY6haPf28umOyR1mznx2E2UOihChLPxRFuD8YOBsuT+ha2rb4YukGkEQ==
+
 fs-extra@^9.0.1:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-9.1.0.tgz#5954460c764a8da2094ba3554bf839e6b9a7c86d"
@@ -4289,11 +4294,6 @@ rollup@^2.43.1:
   integrity sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==
   optionalDependencies:
     fsevents "~2.3.2"
-
-romans@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/romans/-/romans-2.0.8.tgz#1d488ba16c8d63126aee5a577baf6ccc190a3953"
-  integrity sha512-bEF8h1R7JCY1oYhydhC2i+TkV1Teq+BIfbicZZLIcVBJnZweYN8TwBb+9N8zhCmxFswcJzfLP7CH4pTxXYfCYQ==
 
 run-applescript@^5.0.0:
   version "5.0.0"
