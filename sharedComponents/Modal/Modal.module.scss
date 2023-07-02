@@ -1,0 +1,47 @@
+@import '../../styles/colors';
+@import '../../styles/constants';
+
+$base-z-index: 1000;
+
+.Modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100%;
+
+  &_content {
+    position: relative;
+    width: 100%;
+    background-color: $white-1;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 112px);
+    min-height: 200px;
+  }
+
+  &_close_btn {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: $soap-1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: 32px;
+    right: 32px;
+  }
+}

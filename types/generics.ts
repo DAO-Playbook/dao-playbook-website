@@ -54,3 +54,6 @@ export type WithAttribute<T> = {
   id: number;
   attributes: T;
 };
+
+// eslint-disable-next-line no-unused-vars
+export type TFunc<V, R = any> = (value: V) => R;
