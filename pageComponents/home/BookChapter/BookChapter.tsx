@@ -1,31 +1,49 @@
 import React from 'react';
 import Button from '@sharedComponents/Button';
-import { ButtonVariants } from 'types';
+import { ButtonVariants, WithAttribute } from 'types';
 
 import styles from './BookChapter.module.scss';
+import { Chapter } from 'types/book';
+import { capitalize } from 'lodash';
+import { formatQuantity } from 'format-quantity';
+import { format } from 'date-fns';
 
 interface BookChapterProps {
-  isTeaser?: boolean;
+  chapter: WithAttribute<Chapter>;
+  part: number;
 }
 
-const BookChapter: React.FC<BookChapterProps> = ({ isTeaser }) => {
+const BookChapter: React.FC<BookChapterProps> = ({ chapter, part }) => {
   return (
     <div className={styles.BookChapter}>
       <h3>
-        Part I, Chapter 1
+        Part{' '}
+        {capitalize(
+          String(
+            formatQuantity(part, {
+              romanNumerals: true,
+            }),
+          ),
+        )}
+        , Chapter {chapter.attributes.chapter}
         <br />
-        Understanding DAOs
+        {chapter.attributes.title}
       </h3>
-      <p>
-        Learn what a DAO is, the philosophy behind it, and why it's making waves
-        in the world of technology and governance. Discover its unique features,
-        such as decentralized governance, blockchain technology, and smart
-        contracts.
-      </p>
+      <p>{chapter.attributes.excerpt}</p>
       <div className={styles.BookChapter_action}>
-        <p>PUBLISHED AUG 12, 2023</p>
+        <p>
+          {chapter.attributes.isTeaser ? 'AVAILABLE' : 'PUBLISHED'}{' '}
+          {format(
+            new Date(
+              chapter.attributes.isTeaser && chapter.attributes.releaseDate
+                ? chapter.attributes.releaseDate
+                : chapter.attributes.publishedAt,
+            ),
+            'MMM dd, yyyy',
+          )}
+        </p>
         <Button variant={ButtonVariants.Link}>
-          {isTeaser ? 'NOTIFY ME' : 'READ MORE'}
+          {chapter.attributes.isTeaser ? 'NOTIFY ME' : 'READ MORE'}
         </Button>
       </div>
     </div>

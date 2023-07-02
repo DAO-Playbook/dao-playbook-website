@@ -4,19 +4,32 @@ import Hero from '../pageComponents/home/Hero';
 import { metaData } from '@data/pageMeta';
 import Contact from '@pageComponents/home/Contact/Contact';
 import Book from '@pageComponents/home/Book/Book';
+import { getBooks } from '@api/book';
+import { Books } from 'types/book';
 
-const Home: NextPage = () => {
+interface HomeProps {
+  books: Books;
+}
+
+const Home: NextPage<HomeProps> = ({ books }) => {
   return (
     <Layout meta={metaData.home}>
       <Hero />
-      <Book />
+      <Book book={books.data[0]} />
       <Contact />
     </Layout>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  return { props: {} };
+  const books = await getBooks({
+    populate: {
+      parts: {
+        populate: ['chapters'],
+      },
+    },
+  });
+  return { props: { books } };
 };
 
 export default Home;
