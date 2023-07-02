@@ -3,12 +3,13 @@
 @import '../../../styles/typography';
 
 .BookPartNavigation {
-  display: grid;
-  grid-template-rows: 1fr max-content;
+  display: none;
 
   @include md {
     border-right: 1px solid $black-1;
     padding: 32px;
+    display: grid;
+    grid-template-rows: 1fr max-content;
   }
 }
 

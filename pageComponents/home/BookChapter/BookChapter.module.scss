@@ -3,7 +3,11 @@
 @import '../../../styles/typography';
 
 .BookChapter {
-  padding: 48px 72px 48px 48px;
+  padding: 32px 16px;
+
+  @include md {
+    padding: 48px 72px 48px 48px;
+  }
 
   &:hover {
     background: #ebebe0;
@@ -14,9 +18,14 @@
   }
 
   & > h3 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: -0.448px;
+    margin-bottom: 19px;
+
     @include md {
       font-size: 45px;
-      font-weight: 400;
       line-height: 50px;
       letter-spacing: -0.63px;
       margin-bottom: 16px;
@@ -24,9 +33,14 @@
   }
 
   & > p {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.26px;
+    margin-bottom: 40px;
+
     @include md {
       font-size: 16px;
-      font-weight: 400;
       line-height: 31px;
       letter-spacing: -0.32px;
       margin-bottom: 48px;
@@ -41,10 +55,13 @@
     & > p {
       text-transform: uppercase;
       font-family: var(--gTAmericaMono-font);
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 22px;
+      letter-spacing: 0.36px;
 
       @include md {
         font-size: 14px;
-        font-weight: 500;
         line-height: 15px;
         letter-spacing: 0.42px;
       }
