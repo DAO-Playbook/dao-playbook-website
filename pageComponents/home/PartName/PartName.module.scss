@@ -1,0 +1,19 @@
+@import '../../../styles/breakpoint';
+
+.PartName {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0.36px;
+  font-family: var(--gTAmericaMono-font);
+  text-transform: uppercase;
+
+  @include md {
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0.42px;
+  }
+}

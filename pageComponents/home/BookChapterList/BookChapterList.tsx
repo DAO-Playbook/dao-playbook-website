@@ -1,36 +1,83 @@
 import React from 'react';
-import { capitalize, uniqueId } from 'lodash';
+import { capitalize, omit, uniqueId } from 'lodash';
 import { formatQuantity } from 'format-quantity';
+import { useMediaQuery } from 'react-responsive';
 import PartTag from '../PartTag';
 import BookChapter from '../BookChapter';
 import { BookContext } from '@contexts/Book';
 import { PART_TAG_COLORS } from '@data/constants';
 
 import styles from './BookChapterList.module.scss';
+import Select, { Option } from '@sharedComponents/Select/Select';
+import PartName from '../PartName/PartName';
 
 const BookChapterList = () => {
-  const { activePart } = React.useContext(BookContext);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const { activePart, book, setBookContextValue } =
+    React.useContext(BookContext);
+  const parts = book?.attributes.parts.data || [];
   const chapters = activePart?.attributes.chapters;
   const availableChaptersCount = chapters?.data.filter(
     chapter => !chapter.attributes.isTeaser,
   ).length;
+
+  const renderPartName = (option: Option) => {
+    const activePart = parts.find(({ id }) => id === option.value);
+    if (activePart) return <PartName part={activePart} />;
+    return undefined;
+  };
+
+  const renderOption = ({
+    option,
+    ...props
+  }: {
+    tabIndex: number;
+    option: Option;
+    active: boolean;
+    // eslint-disable-next-line no-unused-vars
+    onClick: (e: any) => void;
+    className: string;
+  }) => {
+    return (
+      <li key={uniqueId('option')} {...omit(props, ['option'])}>
+        {renderPartName(option)}
+      </li>
+    );
+  };
+
   return (
     <div className={styles.BookChapterList}>
       <div className={styles.BookChapterList_header}>
-        {activePart && (
-          <p className={styles.Book_part_title}>
-            <PartTag color={PART_TAG_COLORS[activePart.attributes.part - 1]} />
-            PT{' '}
-            {capitalize(
-              String(
-                formatQuantity(activePart.attributes.part, {
-                  romanNumerals: true,
-                }),
-              ),
-            )}{' '}
-            - {activePart.attributes.title}
-          </p>
+        {activePart && !isMobile && <PartName part={activePart} />}
+        {isMobile && (
+          <>
+            <p className={styles.Book_title}>
+              {book?.attributes.title}{' '}
+              {parts.length > 1
+                ? `(PARTS 
+          ${capitalize(String(formatQuantity(1, { romanNumerals: true })))} - 
+          ${capitalize(
+            String(formatQuantity(parts.length, { romanNumerals: true })),
+          )})`
+                : ''}
+            </p>
+            <Select
+              options={parts.map(({ id, attributes: { title } }) => ({
+                value: id,
+                label: title,
+              }))}
+              onChange={option => {
+                const activePart = parts.find(({ id }) => id === option.value);
+                setBookContextValue({ activePart });
+              }}
+              renderOption={props => renderOption(props as any)}
+              value={activePart?.id || ''}
+              className={styles.Book_part_select}
+              selectedText={option => option && renderPartName(option)}
+            />
+          </>
         )}
+
         <p>
           {availableChaptersCount} OF {chapters?.data.length} CHAPTERS AVAILABLE
         </p>

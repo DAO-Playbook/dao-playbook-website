@@ -19,6 +19,7 @@
     font-weight: 500;
     line-height: 15px;
     letter-spacing: 0.42px;
+    color: $text-light;
   }
 
   &_part {
@@ -42,11 +43,6 @@
       align-items: center;
       width: max-content;
       padding: 12px;
-      font-size: 14px;
-      font-weight: 500;
-      line-height: 15px;
-      letter-spacing: 0.42px;
-      text-transform: uppercase;
 
       &:not(:last-of-type) {
         margin-bottom: 20px;
@@ -91,7 +87,7 @@
 
         &:nth-of-type(2) {
           @include md {
-            color: $text-color;
+            color: $text-dark;
           }
         }
       }

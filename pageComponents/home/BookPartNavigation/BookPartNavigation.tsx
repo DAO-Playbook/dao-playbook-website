@@ -11,6 +11,7 @@ import { getChapter } from '@api/book';
 import { WithAttribute } from 'types';
 import { Chapter } from 'types/book';
 import { format } from 'date-fns';
+import PartName from '../PartName/PartName';
 
 const BookPartNavigation = () => {
   const { book, activePart, setBookContextValue } =
@@ -37,8 +38,6 @@ const BookPartNavigation = () => {
     fetchNextRelease();
   }, []);
 
-  console.log('nextRelease :>> ', nextRelease);
-
   return (
     <aside className={styles.BookPartNavigation}>
       <nav className={styles.Book_part}>
@@ -61,14 +60,7 @@ const BookPartNavigation = () => {
               key={uniqueId('part')}
               onClick={() => setBookContextValue({ activePart: part })}
             >
-              <PartTag color={PART_TAG_COLORS[part.attributes.part - 1]} />
-              PT{' '}
-              {capitalize(
-                String(
-                  formatQuantity(part.attributes.part, { romanNumerals: true }),
-                ),
-              )}{' '}
-              - {part.attributes.title}
+              <PartName part={part} />
             </li>
           ))}
         </ul>

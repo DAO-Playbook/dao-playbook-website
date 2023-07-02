@@ -23,7 +23,7 @@ body {
   font-style: normal;
   font-weight: normal;
   margin: 0 auto;
-  color: $text-color;
+  color: $text-dark;
   max-width: 1440px;
   background: #f5f5ef;
 }
@@ -64,7 +64,7 @@ h5,
 h6 {
   margin: 0;
   font-weight: 500;
-  color: $text-color;
+  color: $text-dark;
 }
 
 h1 {
@@ -91,7 +91,7 @@ a {
 }
 
 strong {
-  color: $text-color;
+  color: $text-dark;
   font-weight: 500;
 }
 
