@@ -23,7 +23,7 @@
       font-size: 12px;
       font-weight: 500;
       line-height: 22px;
-      letter-spacing: 0.36px;
+      letter-spacing: -0.1px;
 
       @include md {
         font-size: 14px;
@@ -47,7 +47,7 @@
     font-size: 12px;
     font-weight: 500;
     line-height: 22px;
-    letter-spacing: 0.36px;
+    letter-spacing: -0.1px;
     color: $text-light;
     margin-bottom: 16px;
     margin-left: 4px;
