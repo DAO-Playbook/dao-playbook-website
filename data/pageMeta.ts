@@ -4,7 +4,8 @@ export const metaData = {
   home: {
     title: 'Home',
     url: '/',
-    description: 'A new community for enterprising Africans everywhere',
+    description:
+      'A Comprehensive Guide to Decentralized Autonomous Organizations',
     image: META_IMAGE_URL,
   },
 };
