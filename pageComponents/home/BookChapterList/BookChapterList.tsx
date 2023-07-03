@@ -2,7 +2,7 @@ import React from 'react';
 import { capitalize, omit, uniqueId } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { useMediaQuery } from 'react-responsive';
-import BookChapter from '../BookChapter';
+import BookChapter from '@sharedComponents/BookChapter';
 import { BookContext } from '@contexts/Book';
 import Select, { Option } from '@sharedComponents/Select';
 import PartName from '@sharedComponents/PartName';

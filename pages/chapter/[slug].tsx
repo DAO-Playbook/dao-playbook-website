@@ -1,3 +1,5 @@
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getChapters } from '@api/book';
 import Layout from '@sharedComponents/Layout';
 import { GetStaticProps, NextPage } from 'next';
@@ -7,12 +9,15 @@ import { WithAttribute } from 'types';
 import { Chapter as TChapter } from 'types/book';
 import { DAO_PLAYBOOK_CMS_URL } from '@data/env';
 import Details from '@pageComponents/chapter/Details';
+import Content from '@pageComponents/chapter/Content/Content';
+import NextChapter from '@pageComponents/chapter/NextChapter/NextChapter';
 
 interface ChapterProps {
   chapter: WithAttribute<TChapter>;
+  content: MDXRemoteSerializeResult;
 }
 
-const Chapter: NextPage<ChapterProps> = ({ chapter }) => {
+const Chapter: NextPage<ChapterProps> = ({ chapter, content }) => {
   console.log('chapter :>> ', chapter);
   return (
     <Layout
@@ -24,6 +29,8 @@ const Chapter: NextPage<ChapterProps> = ({ chapter }) => {
       }}
     >
       <Details chapter={chapter} />
+      <Content chapter={chapter} content={content} />
+      <NextChapter chapter={chapter} />
     </Layout>
   );
 };
@@ -56,7 +63,11 @@ export const getStaticProps: GetStaticProps<
     },
   });
 
-  return { props: { chapter: chapters.data[0] } };
+  const chapter = chapters.data[0];
+
+  const mdxSource = await serialize(chapter.attributes.content);
+
+  return { props: { chapter, content: mdxSource } };
 };
 
 export default Chapter;

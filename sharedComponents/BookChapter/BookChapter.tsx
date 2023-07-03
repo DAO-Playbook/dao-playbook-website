@@ -1,25 +1,31 @@
 import React from 'react';
-import Button from '@sharedComponents/Button';
-import { ButtonVariants, WithAttribute } from 'types';
-
-import styles from './BookChapter.module.scss';
-import { Chapter } from 'types/book';
+import cx from 'classnames';
 import { useRouter } from 'next/router';
 import { capitalize } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { format } from 'date-fns';
+import Button from '@sharedComponents/Button';
+import { ButtonVariants, WithAttribute } from 'types';
+import { Chapter } from 'types/book';
 import { LayoutContext } from '@contexts/Layout';
+
+import styles from './BookChapter.module.scss';
 
 interface BookChapterProps {
   chapter: WithAttribute<Chapter>;
   part: number;
+  className?: string;
 }
 
-const BookChapter: React.FC<BookChapterProps> = ({ chapter, part }) => {
+const BookChapter: React.FC<BookChapterProps> = ({
+  chapter,
+  part,
+  className,
+}) => {
   const router = useRouter();
   const { setLayoutContextValue } = React.useContext(LayoutContext);
   return (
-    <div className={styles.BookChapter}>
+    <div className={cx(styles.BookChapter, className)}>
       <h3>
         Part{' '}
         {capitalize(

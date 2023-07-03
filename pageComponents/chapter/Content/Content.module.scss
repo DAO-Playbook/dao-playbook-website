@@ -1,0 +1,79 @@
+@import '../../../styles/breakpoint';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+.Content {
+  width: 100%;
+  padding: 0 16px 104px;
+
+  @include md {
+    padding: unset;
+    max-width: 69.16%;
+    margin: 0 auto 168px;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  & > p {
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.26px;
+
+    @include md {
+      font-size: 16px;
+      line-height: 31px;
+      letter-spacing: -0.32px;
+      margin-bottom: 50px;
+    }
+  }
+
+  ul,
+  ol {
+    width: calc(100% - 36px);
+    margin: 0 0 30px 20px;
+
+    @include md {
+      width: calc(100% - 45px);
+      margin: 0 0 50px 25px;
+      padding-right: 20px;
+    }
+  }
+
+  li {
+    width: 100%;
+    word-wrap: break-word;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: -0.26px;
+
+    @include md {
+      font-size: 16px;
+      line-height: 31px;
+      letter-spacing: -0.32px;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+  }
+
+  strong {
+    font-weight: bold;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 24px;
+    font-size: 30px;
+  }
+}

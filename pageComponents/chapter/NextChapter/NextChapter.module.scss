@@ -1,0 +1,52 @@
+@import '../../../styles/breakpoint';
+@import '../../../styles/colors';
+@import '../../../styles/typography';
+
+.NextChapter {
+  margin-bottom: 109px;
+
+  &_heading {
+    width: 100%;
+    font-family: var(--gTAmericaMono-font);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0.36px;
+    margin: 0 16px 10px;
+
+    @include md {
+      max-width: 69.16%;
+      margin: 0 auto 32px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 15px;
+      letter-spacing: 0.42px;
+    }
+  }
+
+  &_chapter {
+    border-top: 1px solid $black-1;
+    border-bottom: 1px solid $black-1;
+    padding: 0 16px;
+
+    @include md {
+      padding: 0;
+    }
+
+    & > div {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+
+      @include md {
+        max-width: 69.16%;
+        margin: 0 auto;
+      }
+
+      &:hover {
+        background-color: inherit;
+      }
+    }
+  }
+}
