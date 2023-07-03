@@ -1,5 +1,5 @@
 import React from 'react';
-import PartTag from '../PartTag';
+import PartTag from '../../pageComponents/home/PartTag';
 import { PART_TAG_COLORS } from '@data/constants';
 import { capitalize } from 'lodash';
 import { formatQuantity } from 'format-quantity';

@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import BookChapter from '../BookChapter';
 import { BookContext } from '@contexts/Book';
 import Select, { Option } from '@sharedComponents/Select';
-import PartName from '../PartName';
+import PartName from '@sharedComponents/PartName';
 
 import styles from './BookChapterList.module.scss';
 

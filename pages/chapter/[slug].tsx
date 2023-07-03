@@ -5,7 +5,8 @@ import React from 'react';
 import { window } from 'browser-monads';
 import { WithAttribute } from 'types';
 import { Chapter as TChapter } from 'types/book';
-import { DAO_PLAYBOOK_CMS_UPLOAD_BASE_URL } from '@data/env';
+import { DAO_PLAYBOOK_CMS_URL } from '@data/env';
+import Details from '@pageComponents/chapter/Details';
 
 interface ChapterProps {
   chapter: WithAttribute<TChapter>;
@@ -19,10 +20,10 @@ const Chapter: NextPage<ChapterProps> = ({ chapter }) => {
         title: chapter.attributes.title,
         description: chapter.attributes.excerpt,
         url: `${window.location.href}`,
-        image: `${DAO_PLAYBOOK_CMS_UPLOAD_BASE_URL}${chapter.attributes.featuredImage?.data.attributes.url}`,
+        image: `${DAO_PLAYBOOK_CMS_URL}${chapter.attributes.featuredImage?.data.attributes.url}`,
       }}
     >
-      Chapter
+      <Details chapter={chapter} />
     </Layout>
   );
 };

@@ -7,7 +7,7 @@ import { BookContext } from '@contexts/Book';
 import { getChapters } from '@api/book';
 import { WithAttribute } from 'types';
 import { Chapter } from 'types/book';
-import PartName from '../PartName/PartName';
+import PartName from '@sharedComponents/PartName';
 
 import styles from './BookPartNavigation.module.scss';
 

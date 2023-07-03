@@ -55,7 +55,13 @@ const eslinConfig = {
 
 const imgConfig = {
   images: {
-    domains: ['s3.eu-west-1.amazonaws.com'],
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '1337',
+      },
+    ],
   },
 };
 
