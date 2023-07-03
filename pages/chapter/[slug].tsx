@@ -7,7 +7,6 @@ import Layout from '@sharedComponents/Layout';
 import { GetStaticProps, NextPage } from 'next';
 import { WithAttribute } from 'types';
 import { Chapter as TChapter } from 'types/book';
-import { DAO_PLAYBOOK_CMS_URL } from '@data/env';
 import Details from '@pageComponents/chapter/Details';
 import Content from '@pageComponents/chapter/Content/Content';
 import NextChapter from '@pageComponents/chapter/NextChapter/NextChapter';
@@ -24,9 +23,7 @@ const Chapter: NextPage<ChapterProps> = ({ chapter, content }) => {
         title: chapter?.attributes?.title || '',
         description: chapter?.attributes?.excerpt || '',
         url: `${window.location.href}`,
-        image: `${DAO_PLAYBOOK_CMS_URL}${
-          chapter?.attributes?.featuredImage?.data?.attributes?.url || ''
-        }`,
+        image: chapter?.attributes?.featuredImage?.data?.attributes?.url || '',
       }}
     >
       <Details chapter={chapter} />

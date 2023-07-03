@@ -11,7 +11,6 @@ import {
   LinkedInFilledLogo,
   TwitterFilledLogo,
 } from '@assets/svgs';
-import { DAO_PLAYBOOK_CMS_URL } from '@data/env';
 
 import styles from './Details.module.scss';
 
@@ -64,7 +63,7 @@ const Details: React.FC<DetailsProps> = ({ chapter }) => {
       </div>
       <div className={styles.Details_featured_image}>
         <Image
-          src={`${DAO_PLAYBOOK_CMS_URL}${chapter?.attributes.featuredImage?.data?.attributes?.url}`}
+          src={chapter?.attributes.featuredImage?.data?.attributes?.url || ''}
           alt={chapter?.attributes?.title}
           width={996}
           height={376}

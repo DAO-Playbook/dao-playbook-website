@@ -55,12 +55,7 @@ const eslinConfig = {
 
 const imgConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: process.env.NEXT_PUBLIC_DAO_PLAYBOOK_CMS_HOSTNAME,
-      },
-    ],
+    domains: ['res.cloudinary.com'],
   },
 };
 
