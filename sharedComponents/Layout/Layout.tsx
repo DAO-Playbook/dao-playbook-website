@@ -32,7 +32,7 @@ const Layout: NextPage<LayoutProps> = ({ children, className, meta }) => {
       value={{ ...state, setLayoutContextValue: handleStateChange }}
     >
       <Head>
-        <title>Dao Playbook | {meta.title}</title>
+        <title>{meta.title}</title>
         <meta name='title' content={meta.title} />
         <meta name='description' content={meta.description} />
         <meta property='og:url' content={meta.url} />
