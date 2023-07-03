@@ -12,10 +12,11 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ books }) => {
+  const book = books.data[0];
   return (
     <Layout meta={metaData.home}>
       <Hero />
-      <Book book={books.data[0]} />
+      {book && <Book book={book} />}
       <Contact />
     </Layout>
   );
@@ -29,6 +30,7 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     },
   });
+
   return { props: { books } };
 };
 

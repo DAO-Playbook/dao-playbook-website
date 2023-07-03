@@ -1,11 +1,12 @@
 import React from 'react';
 import { LayoutContext } from '@contexts/Layout';
 import Modal from '@sharedComponents/Modal/Modal';
-import { Form, Formik, FormikHelpers } from 'formik';
+import { Form, Formik } from 'formik';
 import Button from '@sharedComponents/Button/Button';
 import { ButtonVariants } from 'types';
 import { NewsletterIllustration } from '@assets/svgs';
 import { newsletterValidator } from 'validators/newsletterValidator';
+import { subscribeToNewsletter } from '@api/newsletter';
 
 import styles from './NewsLetterModal.module.scss';
 
@@ -19,12 +20,12 @@ const NewsLetterModal: React.FC = () => {
     email: '',
   };
 
-  const handleSubmit = (
-    values: typeof initialValues,
-    helper: FormikHelpers<typeof initialValues>,
-  ) => {
-    console.log('values :>> ', values);
-    setIsSuccess(true);
+  const handleSubmit = async (values: typeof initialValues) => {
+    await subscribeToNewsletter(values, isSuccessful => {
+      if (isSuccessful) {
+        setIsSuccess(true);
+      }
+    });
   };
 
   return (
@@ -93,9 +94,10 @@ const NewsLetterModal: React.FC = () => {
             read.
           </p>
           <Button
-            onClick={() =>
-              setLayoutContextValue({ showNewsletterModal: false })
-            }
+            onClick={() => {
+              setLayoutContextValue({ showNewsletterModal: false });
+              setIsSuccess(false);
+            }}
             variant={ButtonVariants.Primary}
           >
             BACK TO DAO PLAYBOOK

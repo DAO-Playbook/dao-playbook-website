@@ -57,9 +57,8 @@ const imgConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337',
+        protocol: 'https',
+        hostname: process.env.NEXT_PUBLIC_DAO_PLAYBOOK_CMS_HOSTNAME,
       },
     ],
   },

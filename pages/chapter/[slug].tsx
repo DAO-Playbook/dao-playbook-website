@@ -1,10 +1,10 @@
+import React from 'react';
+import { window } from 'browser-monads';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { getChapters } from '@api/book';
 import Layout from '@sharedComponents/Layout';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
-import { window } from 'browser-monads';
 import { WithAttribute } from 'types';
 import { Chapter as TChapter } from 'types/book';
 import { DAO_PLAYBOOK_CMS_URL } from '@data/env';

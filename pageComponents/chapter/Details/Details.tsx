@@ -1,19 +1,19 @@
 import React from 'react';
 import { format } from 'date-fns';
+import { capitalize } from 'lodash';
+import Image from 'next/image';
+import { formatQuantity } from 'format-quantity';
 import PartName from '@sharedComponents/PartName';
 import { WithAttribute } from 'types';
 import { Chapter } from 'types/book';
-
-import styles from './Details.module.scss';
-import { capitalize } from 'lodash';
-import { formatQuantity } from 'format-quantity';
 import {
   FacebookFilledLogo,
   LinkedInFilledLogo,
   TwitterFilledLogo,
 } from '@assets/svgs';
 import { DAO_PLAYBOOK_CMS_URL } from '@data/env';
-import Image from 'next/image';
+
+import styles from './Details.module.scss';
 
 interface DetailsProps {
   chapter: WithAttribute<Chapter>;
