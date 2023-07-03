@@ -4,6 +4,7 @@ import { ButtonVariants, WithAttribute } from 'types';
 
 import styles from './BookChapter.module.scss';
 import { Chapter } from 'types/book';
+import { useRouter } from 'next/router';
 import { capitalize } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { format } from 'date-fns';
@@ -15,6 +16,7 @@ interface BookChapterProps {
 }
 
 const BookChapter: React.FC<BookChapterProps> = ({ chapter, part }) => {
+  const router = useRouter();
   const { setLayoutContextValue } = React.useContext(LayoutContext);
   return (
     <div className={styles.BookChapter}>
@@ -48,6 +50,7 @@ const BookChapter: React.FC<BookChapterProps> = ({ chapter, part }) => {
           onClick={() => {
             if (chapter.attributes.isTeaser)
               setLayoutContextValue({ showNewsletterModal: true });
+            else router.push(`/chapter/${chapter.attributes.slug}`);
           }}
           variant={ButtonVariants.Link}
         >

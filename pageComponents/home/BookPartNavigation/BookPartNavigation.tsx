@@ -4,7 +4,7 @@ import { capitalize, uniqueId } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { format } from 'date-fns';
 import { BookContext } from '@contexts/Book';
-import { getChapter } from '@api/book';
+import { getChapters } from '@api/book';
 import { WithAttribute } from 'types';
 import { Chapter } from 'types/book';
 import PartName from '../PartName/PartName';
@@ -20,7 +20,7 @@ const BookPartNavigation = () => {
   const parts = book?.attributes.parts.data || [];
 
   const fetchNextRelease = React.useCallback(async () => {
-    const nextRelease = await getChapter({
+    const nextRelease = await getChapters({
       populate: '*',
       filters: {
         isTeaser: {

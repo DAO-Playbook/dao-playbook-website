@@ -4,13 +4,13 @@ import React from 'react';
 import Footer from '@sharedComponents/Footer';
 import Header from '@sharedComponents/Header';
 import { LayoutContext } from '@contexts/Layout';
-import Modal from '@sharedComponents/Modal/Modal';
-import NewsLetterModal from '@sharedComponents/NewsLetterModal/NewsLetterModal';
+import NewsLetterModal from '@sharedComponents/NewsLetterModal';
 
 interface Meta {
   title: string;
   description: string;
   url: string;
+  image: string;
 }
 
 interface LayoutProps {
@@ -41,6 +41,8 @@ const Layout: NextPage<LayoutProps> = ({ children, className, meta }) => {
         <meta name='twitter:url' content={meta.url} />
         <meta name='twitter:description' content={meta.description} />
         <meta property='al:web:url' content={meta.url} />
+        <meta property='og:image' content={meta.image} />
+        <meta name='twitter:image:src' content={meta.image} />
       </Head>
       <Header />
       <main className={className}>{children}</main>

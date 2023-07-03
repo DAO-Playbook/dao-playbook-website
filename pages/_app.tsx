@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
 import Head from 'next/head';
-import { META_IMAGE_URL, TWITTER_URL } from '@data/constants';
+import { TWITTER_URL } from '@data/constants';
 
 import '../styles/main.scss';
 
@@ -56,17 +56,14 @@ const gTAmericaMono = localFont({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const metaImage = META_IMAGE_URL;
   return (
     <>
       <Head>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
         <meta property='og:type' content='website' />
         <meta property='og:site_name' content='Dao Playbook' />
-        <meta property='og:image' content={metaImage} />
         <meta name='twitter:creator' content={TWITTER_URL} />
         <meta name='twitter:site' content='@brassbanking' />
-        <meta name='twitter:image:src' content={metaImage} />
         <meta name='robots' content='max-image-preview:large' />
         <link
           rel='apple-touch-icon'

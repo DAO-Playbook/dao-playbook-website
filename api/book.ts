@@ -15,7 +15,7 @@ export const getBooks = async (params: IObject): Promise<Books> => {
   return result.data;
 };
 
-export const getChapter = async (
+export const getChapters = async (
   params: IObject,
 ): Promise<WithData<WithAttribute<Chapter>[]>> => {
   const result = await DaoPlaybookCmsServices.get(api.chaptersRoute, {

@@ -12,7 +12,7 @@ export interface Chapter {
   updatedAt: string;
   releaseDate?: string;
   part: WithData<WithAttribute<Part>>;
-  featuredImage?: WithData<StrapiImage>;
+  featuredImage?: WithData<WithAttribute<StrapiImage>>;
 }
 
 export interface Part {

@@ -1,10 +1,8 @@
-import { StaticImageData } from 'next/image';
-
 export interface IObject<T = any> {
   [x: string]: T;
 }
 
-type Thumbnails = {
+type Format = {
   ext: string;
   url: string;
   hash: string;
@@ -17,7 +15,9 @@ type Thumbnails = {
 };
 
 type Formats = {
-  thumbnails: Thumbnails;
+  thumbnail: Format;
+  medium: Format;
+  small: Format;
 };
 
 export type StrapiImage = {
@@ -31,7 +31,7 @@ export type StrapiImage = {
   ext: string;
   mime: string;
   size: number;
-  url: string | StaticImageData;
+  url: string;
   previewUrl: string;
   provider: string;
   provider_metadata: string;
