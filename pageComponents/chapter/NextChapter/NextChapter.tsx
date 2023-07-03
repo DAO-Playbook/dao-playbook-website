@@ -14,10 +14,10 @@ interface NextChapterProps {
 const NextChapter: React.FC<NextChapterProps> = ({ chapter }) => {
   const nextChapter = React.useMemo(() => {
     const currtChapterIndex =
-      chapter.attributes.part.data.attributes.chapters.data.findIndex(
+      chapter?.attributes?.part?.data?.attributes?.chapters?.data?.findIndex(
         item => item.id === chapter.id,
       );
-    return chapter.attributes.part.data.attributes.chapters.data[
+    return chapter?.attributes?.part?.data?.attributes?.chapters?.data[
       currtChapterIndex + 1
     ];
   }, [chapter]);
@@ -28,7 +28,7 @@ const NextChapter: React.FC<NextChapterProps> = ({ chapter }) => {
         NEXT CHAPTER IN PART{' '}
         {capitalize(
           String(
-            formatQuantity(chapter.attributes.part.data.attributes.part, {
+            formatQuantity(chapter?.attributes?.part?.data?.attributes?.part, {
               romanNumerals: true,
             }),
           ),
@@ -37,7 +37,7 @@ const NextChapter: React.FC<NextChapterProps> = ({ chapter }) => {
       <div className={styles.NextChapter_chapter}>
         <BookChapter
           chapter={nextChapter}
-          part={chapter.attributes.part.data.attributes.part}
+          part={chapter?.attributes?.part?.data?.attributes?.part}
         />
       </div>
     </section>

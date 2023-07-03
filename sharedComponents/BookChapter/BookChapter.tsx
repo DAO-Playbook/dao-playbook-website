@@ -24,6 +24,15 @@ const BookChapter: React.FC<BookChapterProps> = ({
 }) => {
   const router = useRouter();
   const { setLayoutContextValue } = React.useContext(LayoutContext);
+
+  const getDate = () => {
+    if (chapter?.attributes?.isTeaser && chapter?.attributes?.releaseDate)
+      return format(new Date(chapter.attributes.releaseDate), 'MMM dd, yyyy');
+    if (chapter?.attributes?.publishedAt)
+      return format(new Date(chapter.attributes.publishedAt), 'MMM dd, yyyy');
+    return '';
+  };
+
   return (
     <div className={cx(styles.BookChapter, className)}>
       <h3>
@@ -35,32 +44,25 @@ const BookChapter: React.FC<BookChapterProps> = ({
             }),
           ),
         )}
-        , Chapter {chapter.attributes.chapter}
+        , Chapter {chapter?.attributes?.chapter}
         <br />
-        {chapter.attributes.title}
+        {chapter?.attributes?.title}
       </h3>
-      <p>{chapter.attributes.excerpt}</p>
+      <p>{chapter?.attributes?.excerpt}</p>
       <div className={styles.BookChapter_action}>
         <p>
-          {chapter.attributes.isTeaser ? 'AVAILABLE' : 'PUBLISHED'}{' '}
-          {format(
-            new Date(
-              chapter.attributes.isTeaser && chapter.attributes.releaseDate
-                ? chapter.attributes.releaseDate
-                : chapter.attributes.publishedAt,
-            ),
-            'MMM dd, yyyy',
-          )}
+          {chapter?.attributes?.isTeaser ? 'AVAILABLE' : 'PUBLISHED'}{' '}
+          {getDate()}
         </p>
         <Button
           onClick={() => {
-            if (chapter.attributes.isTeaser)
+            if (chapter?.attributes?.isTeaser)
               setLayoutContextValue({ showNewsletterModal: true });
-            else router.push(`/chapter/${chapter.attributes.slug}`);
+            else router.push(`/chapter/${chapter?.attributes?.slug}`);
           }}
           variant={ButtonVariants.Link}
         >
-          {chapter.attributes.isTeaser ? 'NOTIFY ME' : 'READ MORE'}
+          {chapter?.attributes?.isTeaser ? 'NOTIFY ME' : 'READ MORE'}
         </Button>
       </div>
     </div>

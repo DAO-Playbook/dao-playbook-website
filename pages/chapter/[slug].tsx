@@ -14,22 +14,23 @@ import NextChapter from '@pageComponents/chapter/NextChapter/NextChapter';
 
 interface ChapterProps {
   chapter: WithAttribute<TChapter>;
-  content: MDXRemoteSerializeResult;
+  content: MDXRemoteSerializeResult | null;
 }
 
 const Chapter: NextPage<ChapterProps> = ({ chapter, content }) => {
-  console.log('chapter :>> ', chapter);
   return (
     <Layout
       meta={{
-        title: chapter.attributes.title,
-        description: chapter.attributes.excerpt,
+        title: chapter?.attributes?.title || '',
+        description: chapter?.attributes?.excerpt || '',
         url: `${window.location.href}`,
-        image: `${DAO_PLAYBOOK_CMS_URL}${chapter.attributes.featuredImage?.data.attributes.url}`,
+        image: `${DAO_PLAYBOOK_CMS_URL}${
+          chapter?.attributes?.featuredImage?.data?.attributes?.url || ''
+        }`,
       }}
     >
       <Details chapter={chapter} />
-      <Content chapter={chapter} content={content} />
+      {content && <Content content={content} />}
       <NextChapter chapter={chapter} />
     </Layout>
   );
@@ -43,9 +44,15 @@ export async function getStaticPaths() {
     fields: ['slug'],
   });
 
-  const paths = chapters.data.map(({ attributes: { slug } }) => ({
-    params: { slug },
-  }));
+  const paths = chapters.data
+    .map(({ attributes: { slug, isTeaser } }) =>
+      isTeaser
+        ? null
+        : {
+            params: { slug },
+          },
+    )
+    .filter(Boolean);
 
   return { paths, fallback: false };
 }
@@ -65,7 +72,9 @@ export const getStaticProps: GetStaticProps<
 
   const chapter = chapters.data[0];
 
-  const mdxSource = await serialize(chapter.attributes.content);
+  let mdxSource = null;
+  if (chapter.attributes.content)
+    mdxSource = await serialize(chapter.attributes.content);
 
   return { props: { chapter, content: mdxSource } };
 };

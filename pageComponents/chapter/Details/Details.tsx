@@ -23,10 +23,10 @@ const Details: React.FC<DetailsProps> = ({ chapter }) => {
   return (
     <section className={styles.Details}>
       <div className={styles.Details_part_info}>
-        <PartName part={chapter.attributes.part.data} />
+        <PartName part={chapter?.attributes?.part?.data} />
         <p>
           PUBLISHED{' '}
-          {format(new Date(chapter.attributes.publishedAt), 'MMM dd, yyyy')}
+          {format(new Date(chapter?.attributes?.publishedAt), 'MMM dd, yyyy')}
         </p>
       </div>
       <div className={styles.Details_title}>
@@ -34,14 +34,17 @@ const Details: React.FC<DetailsProps> = ({ chapter }) => {
           Part{' '}
           {capitalize(
             String(
-              formatQuantity(chapter.attributes.part.data.attributes.part, {
-                romanNumerals: true,
-              }),
+              formatQuantity(
+                chapter?.attributes?.part?.data?.attributes?.part,
+                {
+                  romanNumerals: true,
+                },
+              ),
             ),
           )}
-          , Chapter {chapter.attributes.chapter}
+          , Chapter {chapter?.attributes?.chapter}
           <br />
-          {chapter.attributes.title}
+          {chapter?.attributes?.title}
         </h1>
         <div>
           <p>SHARE THIS POST</p>
@@ -61,8 +64,8 @@ const Details: React.FC<DetailsProps> = ({ chapter }) => {
       </div>
       <div className={styles.Details_featured_image}>
         <Image
-          src={`${DAO_PLAYBOOK_CMS_URL}${chapter.attributes.featuredImage?.data.attributes.url}`}
-          alt={chapter.attributes.title}
+          src={`${DAO_PLAYBOOK_CMS_URL}${chapter?.attributes.featuredImage?.data?.attributes?.url}`}
+          alt={chapter?.attributes?.title}
           width={996}
           height={376}
         />
