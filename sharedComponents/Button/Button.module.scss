@@ -21,9 +21,30 @@
 
   &_primary {
     background-color: $black-1;
-    padding: 20px 18px;
+    padding: 16px 18px;
     color: $white-1;
     font-weight: 500;
+    min-width: 120px;
+    min-height: 56px;
+
+    @include md {
+      padding: 20px 18px;
+    }
+
+    &:disabled {
+      background-color: rgba($color: $black-1, $alpha: 0.7);
+    }
+  }
+
+  &_loading {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &_loader {
+    stroke: $white-1;
   }
 
   &_link {

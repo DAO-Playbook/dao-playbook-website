@@ -37,7 +37,7 @@ const BookChapterList = () => {
     className: string;
   }) => {
     return (
-      <li key={uniqueId('option')} {...omit(props, ['option'])}>
+      <li key={uniqueId('option')} {...omit(props, ['option', 'active'])}>
         {renderPartName(option)}
       </li>
     );

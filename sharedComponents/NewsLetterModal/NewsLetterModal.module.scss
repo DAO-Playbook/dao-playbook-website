@@ -1,0 +1,90 @@
+@import '../../styles/colors';
+@import '../../styles/breakpoint';
+
+.NewsLetterModal {
+  & > div {
+    padding: 40px 43px 56px 40px;
+  }
+
+  &_heading {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: -0.63px;
+    margin-bottom: 12px;
+    @include md {
+      font-size: 45px;
+    }
+  }
+
+  &_description {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: -0.32px;
+  }
+
+  &_form {
+    width: 100%;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+
+    & > input {
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 31px;
+      letter-spacing: -0.32px;
+      height: 56px;
+      width: 472px;
+      border-radius: 0;
+      background: #f5f5ef;
+
+      &,
+      &:active,
+      &:focus,
+      &:focus-within,
+      &:focus-visible,
+      &:not(:placeholder-shown) {
+        outline: none;
+        border: 1px solid $text-dark;
+        background: #f5f5ef !important;
+      }
+    }
+  }
+
+  &_success {
+    padding: 36px 2px 8px 5px;
+    text-align: center;
+
+    & > svg {
+      width: 151.966px;
+      height: 112.843px;
+      margin-bottom: 40px;
+    }
+
+    & > h2 {
+      font-size: 35px;
+      font-weight: 400;
+      line-height: 43px;
+      letter-spacing: -0.56px;
+      margin-bottom: 6px;
+
+      @include md {
+        font-size: 40px;
+      }
+    }
+
+    & > p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 31px;
+      letter-spacing: -0.32px;
+    }
+
+    & > button {
+      margin-top: 40px;
+    }
+  }
+}

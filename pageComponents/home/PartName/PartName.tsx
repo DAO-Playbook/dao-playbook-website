@@ -14,7 +14,7 @@ interface PartNameProps {
 
 const PartName: React.FC<PartNameProps> = ({ part }) => {
   return (
-    <p className={styles.PartName}>
+    <span className={styles.PartName}>
       <PartTag color={PART_TAG_COLORS[part.attributes.part - 1]} />
       PT{' '}
       {capitalize(
@@ -25,7 +25,7 @@ const PartName: React.FC<PartNameProps> = ({ part }) => {
         ),
       )}{' '}
       - {part.attributes.title}
-    </p>
+    </span>
   );
 };
 

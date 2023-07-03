@@ -1,5 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
+import { document } from 'browser-monads';
 
 export interface PortalProps extends HTMLAttributes<any> {
   portalId: string;
@@ -11,8 +12,10 @@ const Portal: React.FC<PortalProps> = ({
   children,
   portalId,
 }) => {
-  const portalRef = React.useRef(document.createElement('div'));
-  const portalRootRef = React.useRef(document.createElement('div'));
+  const portalRef = React.useRef<HTMLDivElement>(document.createElement('div'));
+  const portalRootRef = React.useRef<HTMLDivElement>(
+    document.createElement('div'),
+  );
 
   React.useEffect(() => {
     portalRootRef.current.setAttribute('id', 'portal-root');

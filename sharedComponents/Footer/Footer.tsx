@@ -8,9 +8,12 @@ import Button from '@sharedComponents/Button/Button';
 import { ButtonVariants } from 'types';
 
 import styles from './Footer.module.scss';
+import React from 'react';
+import { LayoutContext } from '@contexts/Layout';
 
 const Footer: NextPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
+  const { setLayoutContextValue } = React.useContext(LayoutContext);
   return (
     <footer className={styles.Footer}>
       <Link className={styles.Footer_logo} href='/'>
@@ -24,7 +27,11 @@ const Footer: NextPage = () => {
           <TwitterLogo />
         </a>
       </div>
-      <Button className={styles.Footer_button} variant={ButtonVariants.Link}>
+      <Button
+        onClick={() => setLayoutContextValue({ showNewsletterModal: true })}
+        className={styles.Footer_button}
+        variant={ButtonVariants.Link}
+      >
         {`SUBSCRIBE ${isMobile ? '' : ' TO NEWSLETTER'}`}
       </Button>
     </footer>

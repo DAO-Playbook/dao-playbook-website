@@ -7,6 +7,7 @@ import { Chapter } from 'types/book';
 import { capitalize } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { format } from 'date-fns';
+import { LayoutContext } from '@contexts/Layout';
 
 interface BookChapterProps {
   chapter: WithAttribute<Chapter>;
@@ -14,6 +15,7 @@ interface BookChapterProps {
 }
 
 const BookChapter: React.FC<BookChapterProps> = ({ chapter, part }) => {
+  const { setLayoutContextValue } = React.useContext(LayoutContext);
   return (
     <div className={styles.BookChapter}>
       <h3>
@@ -42,7 +44,13 @@ const BookChapter: React.FC<BookChapterProps> = ({ chapter, part }) => {
             'MMM dd, yyyy',
           )}
         </p>
-        <Button variant={ButtonVariants.Link}>
+        <Button
+          onClick={() => {
+            if (chapter.attributes.isTeaser)
+              setLayoutContextValue({ showNewsletterModal: true });
+          }}
+          variant={ButtonVariants.Link}
+        >
           {chapter.attributes.isTeaser ? 'NOTIFY ME' : 'READ MORE'}
         </Button>
       </div>

@@ -3,6 +3,9 @@ import Head from 'next/head';
 import React from 'react';
 import Footer from '@sharedComponents/Footer';
 import Header from '@sharedComponents/Header';
+import { LayoutContext } from '@contexts/Layout';
+import Modal from '@sharedComponents/Modal/Modal';
+import NewsLetterModal from '@sharedComponents/NewsLetterModal/NewsLetterModal';
 
 interface Meta {
   title: string;
@@ -17,8 +20,17 @@ interface LayoutProps {
 }
 
 const Layout: NextPage<LayoutProps> = ({ children, className, meta }) => {
+  const [state, setState] = React.useState({
+    showNewsletterModal: false,
+  });
+
+  const handleStateChange = (newState: Partial<typeof state>) =>
+    setState(state => ({ ...state, ...newState }));
+
   return (
-    <>
+    <LayoutContext.Provider
+      value={{ ...state, setLayoutContextValue: handleStateChange }}
+    >
       <Head>
         <title>Dao Playbook | {meta.title}</title>
         <meta name='title' content={meta.title} />
@@ -33,7 +45,8 @@ const Layout: NextPage<LayoutProps> = ({ children, className, meta }) => {
       <Header />
       <main className={className}>{children}</main>
       <Footer />
-    </>
+      <NewsLetterModal />
+    </LayoutContext.Provider>
   );
 };
 

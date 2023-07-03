@@ -2,9 +2,9 @@ import cx from 'classnames';
 import React from 'react';
 import Portal from '../Portal';
 import { IObject } from '../../types';
+import { CloseIcon } from '@assets/svgs';
 
 import styles from './Modal.module.scss';
-import { CloseIcon } from '@assets/svgs';
 
 export enum Size {
   // eslint-disable-next-line no-unused-vars
