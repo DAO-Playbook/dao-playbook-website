@@ -1,9 +1,11 @@
 import type { AppProps } from 'next/app';
 import localFont from 'next/font/local';
 import Head from 'next/head';
+import { NotificationContainer } from 'react-notifications';
 import { TWITTER_URL } from '@data/constants';
 
 import '../styles/main.scss';
+import 'react-notifications/lib/notifications.css';
 
 const baskervville = localFont({
   src: [
@@ -149,6 +151,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           --gTAmericaMono-font: ${gTAmericaMono.style.fontFamily};
         }
       `}</style>
+      <NotificationContainer />
       <Component {...pageProps} />
     </>
   );
