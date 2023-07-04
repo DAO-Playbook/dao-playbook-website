@@ -2,15 +2,18 @@ import React from 'react';
 import { format } from 'date-fns';
 import { capitalize } from 'lodash';
 import Image from 'next/image';
+import qs from 'qs';
+import { window } from 'browser-monads';
 import { formatQuantity } from 'format-quantity';
 import PartName from '@sharedComponents/PartName';
-import { WithAttribute } from 'types';
+import { SharePlatform, WithAttribute } from 'types';
 import { Chapter } from 'types/book';
 import {
   FacebookFilledLogo,
   LinkedInFilledLogo,
   TwitterFilledLogo,
 } from '@assets/svgs';
+import { SHARE_PLATFORM_DATA } from '@data/constants';
 
 import styles from './Details.module.scss';
 
@@ -19,6 +22,16 @@ interface DetailsProps {
 }
 
 const Details: React.FC<DetailsProps> = ({ chapter }) => {
+  const generateShareUrl = (platform: SharePlatform) => {
+    const data = SHARE_PLATFORM_DATA[platform];
+    return `${data.url}?${qs.stringify(
+      data.getParams({
+        url: window.location.href,
+        title: chapter.attributes.title,
+        description: chapter.attributes.excerpt,
+      }),
+    )}`;
+  };
   return (
     <section className={styles.Details}>
       <div className={styles.Details_part_info}>
@@ -48,14 +61,25 @@ const Details: React.FC<DetailsProps> = ({ chapter }) => {
         <div>
           <p>SHARE THIS POST</p>
           <div>
-            {' '}
-            <a href='#'>
+            <a
+              rel='noopener noreferrer'
+              target='_blank'
+              href={generateShareUrl(SharePlatform.Facebook)}
+            >
               <FacebookFilledLogo />
             </a>
-            <a href='#'>
+            <a
+              rel='noopener noreferrer'
+              target='_blank'
+              href={generateShareUrl(SharePlatform.Twiter)}
+            >
               <TwitterFilledLogo />
             </a>
-            <a href='#'>
+            <a
+              rel='noopener noreferrer'
+              target='_blank'
+              href={generateShareUrl(SharePlatform.LinkedIn)}
+            >
               <LinkedInFilledLogo />
             </a>
           </div>

@@ -10,6 +10,7 @@ import { ButtonVariants } from 'types';
 import styles from './Footer.module.scss';
 import React from 'react';
 import { LayoutContext } from '@contexts/Layout';
+import { LINKEDIN_URL, TWITTER_URL } from '@data/constants';
 
 const Footer: NextPage = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
@@ -20,10 +21,10 @@ const Footer: NextPage = () => {
         <DaoLogo />
       </Link>
       <div className={styles.Footer_social_links}>
-        <a href='#'>
+        <a rel='noopener noreferrer' target='_blank' href={LINKEDIN_URL}>
           <LinkedInLogo />
         </a>
-        <a href='#'>
+        <a rel='noopener noreferrer' target='_blank' href={TWITTER_URL}>
           <TwitterLogo />
         </a>
       </div>

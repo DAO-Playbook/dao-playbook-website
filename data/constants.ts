@@ -1,8 +1,13 @@
-export const TWITTER_URL = 'https://twitter.com';
-export const INSTAGRAM_URL = 'https://www.instagram.com';
-export const LINKEDIN_URL = 'https://www.linkedin.com';
-export const FACEBOOK_URL = 'https://www.facebook.com';
-export const META_IMAGE_URL = `'`;
+import {
+  generateFacebookShareParams,
+  generateLinkedInShareParams,
+  generateTwitterShareParams,
+} from '@utils/generics';
+import { SharePlatform } from 'types';
+
+export const TWITTER_URL = 'https://twitter.com/_bablo_';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/lolade-babs';
+export const META_IMAGE_URL = ``;
 export const PART_TAG_COLORS = [
   '#7876D0',
   '#F3D568',
@@ -23,3 +28,21 @@ export const PART_TAG_COLORS = [
   '#DFCCE1',
   '#BDBDBD',
 ];
+export const TWITTER_SHARE_URL = 'https://twitter.com/intent/tweet';
+export const FACEBOOK_SHARE_URL = 'https://www.facebook.com/sharer/sharer.php';
+export const LINKEDIN_SHARE_URL = 'https://www.linkedin.com/shareArticle';
+
+export const SHARE_PLATFORM_DATA = {
+  [SharePlatform.Facebook]: {
+    url: FACEBOOK_SHARE_URL,
+    getParams: generateFacebookShareParams,
+  },
+  [SharePlatform.LinkedIn]: {
+    url: LINKEDIN_SHARE_URL,
+    getParams: generateLinkedInShareParams,
+  },
+  [SharePlatform.Twiter]: {
+    url: TWITTER_SHARE_URL,
+    getParams: generateTwitterShareParams,
+  },
+};

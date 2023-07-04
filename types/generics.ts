@@ -57,3 +57,18 @@ export type WithAttribute<T> = {
 
 // eslint-disable-next-line no-unused-vars
 export type TFunc<V, R = any> = (value: V) => R;
+
+export enum SharePlatform {
+  // eslint-disable-next-line no-unused-vars
+  Facebook = 'facebook',
+  // eslint-disable-next-line no-unused-vars
+  Twiter = 'twitter',
+  // eslint-disable-next-line no-unused-vars
+  LinkedIn = 'linkedin',
+}
+
+export interface ShareData {
+  url: string;
+  title: string;
+  description: string;
+}
