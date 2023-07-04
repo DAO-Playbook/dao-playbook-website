@@ -3,7 +3,7 @@ import { format } from 'date-fns';
 import { capitalize } from 'lodash';
 import Image from 'next/image';
 import qs from 'qs';
-import { window } from 'browser-monads';
+
 import { formatQuantity } from 'format-quantity';
 import PartName from '@sharedComponents/PartName';
 import { SharePlatform, WithAttribute } from 'types';
@@ -14,6 +14,7 @@ import {
   TwitterFilledLogo,
 } from '@assets/svgs';
 import { SHARE_PLATFORM_DATA } from '@data/constants';
+import { APP_URL } from '@data/env';
 
 import styles from './Details.module.scss';
 
@@ -26,7 +27,7 @@ const Details: React.FC<DetailsProps> = ({ chapter }) => {
     const data = SHARE_PLATFORM_DATA[platform];
     return `${data.url}?${qs.stringify(
       data.getParams({
-        url: window.location.href,
+        url: `${APP_URL}/chapter/${chapter.attributes.slug}`,
         title: chapter.attributes.title,
         description: chapter.attributes.excerpt,
       }),

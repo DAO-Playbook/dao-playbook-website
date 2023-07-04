@@ -16,7 +16,8 @@ export const generateTwitterShareParams = ({
   title,
   description,
 }: ShareData) => ({
-  text: `${truncate(`${title} - ${description}`, 200 - url.length)} ${url}`,
+  url,
+  text: truncate(`${title} - ${description}`, 280),
 });
 
 export const generateLinkedInShareParams = ({
