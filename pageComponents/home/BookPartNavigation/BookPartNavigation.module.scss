@@ -6,6 +6,8 @@
   display: none;
 
   @include md {
+    max-width: 484px;
+    width: 100%;
     border-right: 1px solid $black-1;
     padding: 32px;
     display: grid;
@@ -24,6 +26,10 @@
 
   &_part {
     @include md {
+      padding: 16px 0 40px;
+    }
+
+    @include lp {
       padding: 16px 40px 40px;
     }
 

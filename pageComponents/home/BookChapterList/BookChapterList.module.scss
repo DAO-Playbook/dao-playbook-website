@@ -3,6 +3,11 @@
 @import '../../../styles/typography';
 
 .BookChapterList {
+  @include md {
+    max-width: 957px;
+    width: 100%;
+  }
+
   &_header {
     border-bottom: 1px solid $black-1;
     padding: 32px 12px 24px;

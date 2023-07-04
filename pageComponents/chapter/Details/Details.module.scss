@@ -6,8 +6,12 @@
   width: 100%;
 
   @include md {
-    max-width: 69.16%;
+    max-width: 80%;
     margin: 72px auto 40px;
+  }
+
+  @include lp {
+    max-width: 69.16%;
   }
 
   &_part_info {

@@ -9,6 +9,6 @@
 
   @include md {
     display: grid;
-    grid-template-columns: 484px 957px;
+    grid-template-columns: 1fr 2fr;
   }
 }

@@ -8,8 +8,12 @@
 
   @include md {
     padding: unset;
-    max-width: 69.16%;
+    max-width: 80%;
     margin: 0 auto 168px;
+  }
+
+  @include lp {
+    max-width: 69.16%;
   }
 
   img {
