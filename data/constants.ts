@@ -46,3 +46,11 @@ export const SHARE_PLATFORM_DATA = {
     getParams: generateTwitterShareParams,
   },
 };
+
+export const DAO_PLAYBOOK_HELP_EMAIL = 'help@daoplaybook.com';
+
+export const HELP_EMAIL_DATA = {
+  email: DAO_PLAYBOOK_HELP_EMAIL,
+  body: '',
+  subject: 'Get in touch',
+};
