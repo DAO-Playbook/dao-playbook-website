@@ -8,7 +8,7 @@ export const truncate = (text = '', length: number) =>
     : '';
 
 export const generateFacebookShareParams = ({ url }: ShareData) => ({
-  u: url,
+  u: encodeURI(url),
 });
 
 export const generateTwitterShareParams = ({
@@ -16,8 +16,8 @@ export const generateTwitterShareParams = ({
   title,
   description,
 }: ShareData) => ({
-  url,
-  text: truncate(`${title} - ${description}`, 280),
+  url: encodeURI(url),
+  text: encodeURI(truncate(`${title} - ${description}`, 200)),
 });
 
 export const generateLinkedInShareParams = ({
@@ -25,8 +25,8 @@ export const generateLinkedInShareParams = ({
   title,
   description,
 }: ShareData) => ({
-  url,
-  title: truncate(title, 200),
-  summary: truncate(description, 256),
   mini: true,
+  url: encodeURI(url),
+  title: encodeURI(truncate(title, 200)),
+  summary: encodeURI(truncate(description, 200)),
 });
