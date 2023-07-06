@@ -1,11 +1,10 @@
 import React from 'react';
+import { formatQuantity } from 'format-quantity';
 import { WithAttribute } from 'types';
 import { Chapter } from 'types/book';
+import BookChapter from '@sharedComponents/BookChapter/BookChapter';
 
 import styles from './NextChapter.module.scss';
-import BookChapter from '@sharedComponents/BookChapter/BookChapter';
-import { formatQuantity } from 'format-quantity';
-import { capitalize } from 'lodash';
 
 interface NextChapterProps {
   chapter: WithAttribute<Chapter>;
@@ -26,13 +25,11 @@ const NextChapter: React.FC<NextChapterProps> = ({ chapter }) => {
     <section className={styles.NextChapter}>
       <p className={styles.NextChapter_heading}>
         NEXT CHAPTER IN PART{' '}
-        {capitalize(
-          String(
-            formatQuantity(chapter?.attributes?.part?.data?.attributes?.part, {
-              romanNumerals: true,
-            }),
-          ),
-        )}
+        {String(
+          formatQuantity(chapter?.attributes?.part?.data?.attributes?.part, {
+            romanNumerals: true,
+          }),
+        ).toUpperCase()}
       </p>
       <div className={styles.NextChapter_chapter}>
         <BookChapter

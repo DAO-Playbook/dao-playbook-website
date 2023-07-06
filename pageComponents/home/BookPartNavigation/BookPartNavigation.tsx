@@ -1,6 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
-import { capitalize, uniqueId } from 'lodash';
+import { uniqueId } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { format } from 'date-fns';
 import { BookContext } from '@contexts/Book';
@@ -43,10 +43,10 @@ const BookPartNavigation = () => {
           {book?.attributes.title}{' '}
           {parts.length > 1
             ? `(PARTS 
-          ${capitalize(String(formatQuantity(1, { romanNumerals: true })))} - 
-          ${capitalize(
-            String(formatQuantity(parts.length, { romanNumerals: true })),
-          )})`
+          ${String(formatQuantity(1, { romanNumerals: true })).toUpperCase()} - 
+          ${String(
+            formatQuantity(parts.length, { romanNumerals: true }),
+          ).toUpperCase()})`
             : ''}
         </p>
         <ul className={styles.Book_part_list}>
@@ -78,14 +78,11 @@ const BookPartNavigation = () => {
           </div>
           <h4 className={styles.Book_next_release_title}>
             Part{' '}
-            {capitalize(
-              String(
-                formatQuantity(
-                  nextRelease.attributes.part.data.attributes.part,
-                  { romanNumerals: true },
-                ),
-              ),
-            )}
+            {String(
+              formatQuantity(nextRelease.attributes.part.data.attributes.part, {
+                romanNumerals: true,
+              }),
+            ).toUpperCase()}
             , Chapter {nextRelease.attributes.chapter}
             <br />
             {nextRelease.attributes.title}

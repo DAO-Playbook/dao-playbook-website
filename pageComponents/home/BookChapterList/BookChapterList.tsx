@@ -1,5 +1,5 @@
 import React from 'react';
-import { capitalize, omit, uniqueId } from 'lodash';
+import { omit, uniqueId } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { useMediaQuery } from 'react-responsive';
 import BookChapter from '@sharedComponents/BookChapter';
@@ -53,10 +53,10 @@ const BookChapterList = () => {
               {book?.attributes.title}{' '}
               {parts.length > 1
                 ? `(PARTS 
-          ${capitalize(String(formatQuantity(1, { romanNumerals: true })))} - 
-          ${capitalize(
-            String(formatQuantity(parts.length, { romanNumerals: true })),
-          )})`
+          ${String(formatQuantity(1, { romanNumerals: true })).toUpperCase()} - 
+          ${String(
+            formatQuantity(parts.length, { romanNumerals: true }),
+          ).toUpperCase()})`
                 : ''}
             </p>
             <Select

@@ -1,7 +1,6 @@
 import React from 'react';
 import cx from 'classnames';
 import { useRouter } from 'next/router';
-import { capitalize } from 'lodash';
 import { formatQuantity } from 'format-quantity';
 import { format } from 'date-fns';
 import Button from '@sharedComponents/Button';
@@ -37,13 +36,11 @@ const BookChapter: React.FC<BookChapterProps> = ({
     <div className={cx(styles.BookChapter, className)}>
       <h3>
         Part{' '}
-        {capitalize(
-          String(
-            formatQuantity(part, {
-              romanNumerals: true,
-            }),
-          ),
-        )}
+        {String(
+          formatQuantity(part, {
+            romanNumerals: true,
+          }),
+        ).toUpperCase()}
         , Chapter {chapter?.attributes?.chapter}
         <br />
         {chapter?.attributes?.title}

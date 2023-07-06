@@ -1,6 +1,5 @@
 import React from 'react';
 import { format } from 'date-fns';
-import { capitalize } from 'lodash';
 import Image from 'next/image';
 import qs from 'qs';
 
@@ -45,16 +44,11 @@ const Details: React.FC<DetailsProps> = ({ chapter }) => {
       <div className={styles.Details_title}>
         <h1>
           Part{' '}
-          {capitalize(
-            String(
-              formatQuantity(
-                chapter?.attributes?.part?.data?.attributes?.part,
-                {
-                  romanNumerals: true,
-                },
-              ),
-            ),
-          )}
+          {String(
+            formatQuantity(chapter?.attributes?.part?.data?.attributes?.part, {
+              romanNumerals: true,
+            }),
+          ).toUpperCase()}
           , Chapter {chapter?.attributes?.chapter}
           <br />
           {chapter?.attributes?.title}
